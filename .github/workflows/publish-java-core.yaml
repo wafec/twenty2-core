@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./libraries/twenty2-commons
+        working-directory: ./libraries/twenty2-core
     permissions:
       contents: read
       packages: write
@@ -23,7 +23,7 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: publish
-          build-root-directory: ./libraries/twenty2-commons
-          gradle-executable: ./libraries/twenty2-commons/gradlew
+          build-root-directory: ./libraries/twenty2-core
+          gradle-executable: ./libraries/twenty2-core/gradlew
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
