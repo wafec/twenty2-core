@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'twenty2-core'
-include('twenty2_lib')
+include('core_lib')
