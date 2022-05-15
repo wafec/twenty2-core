@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import twenty2.core.api.exceptions.ApiException;
+import twenty2.core.api.exceptions.AbstractApiException;
 
 @RestControllerAdvice
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
@@ -19,8 +19,8 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
      * @param request the upcoming request
      * @return a resulting response entity containing the exception body
      */
-    @ExceptionHandler( ApiException.class )
-    ResponseEntity<Object> handleApiException( ApiException ex, WebRequest request ) throws JsonProcessingException {
+    @ExceptionHandler( AbstractApiException.class )
+    ResponseEntity<Object> handleApiException(AbstractApiException ex, WebRequest request ) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType( MediaType.APPLICATION_JSON );
