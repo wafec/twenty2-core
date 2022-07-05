@@ -40,11 +40,10 @@ publishing {
 
     repositories {
         maven {
-            name = "twenty2-packages"
-            url = "https://maven.pkg.github.com/wafec/twenty2-packages"
-            credentials {
-                username = System.getenv( "GITHUB_ACTOR" )
-                password = System.getenv( "GITHUB_TOKEN" )
+            url = "s3://wafec-releases/twenty2/"
+            credentials(AwsCredentials) {
+                accessKey = System.getenv( "AWS_ACCESS_KEY_ID" )
+                secretKey = System.getenv( "AWS_SECRET_ACCESS_KEY" )
             }
         }
     }

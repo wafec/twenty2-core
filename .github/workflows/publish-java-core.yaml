@@ -7,9 +7,6 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./libraries/twenty2-core
     permissions:
       contents: read
       packages: write
@@ -25,8 +22,9 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: publish
-          build-root-directory: ./libraries/twenty2-core
-          gradle-executable: ./libraries/twenty2-core/gradlew
+          build-root-directory: ./libraries/core
+          gradle-executable: ./libraries/core/gradlew
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           RELEASE_VERSION: ${{ env.RELEASE_VERSION }}
