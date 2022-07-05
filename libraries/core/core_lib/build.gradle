@@ -29,10 +29,10 @@ dependencies {
 
 publishing {
     publications {
-        maven(MavenPublication) {
-            groupId 'wafec'
+        maven( MavenPublication ) {
+            groupId 'wafec-twenty2'
             artifactId 'twenty2-core'
-            version '1.0.1'
+            version System.getenv( "RELEASE_VERSION" )
 
             from components.java
         }
@@ -40,8 +40,8 @@ publishing {
 
     repositories {
         maven {
-            name = "GitHubPackages"
-            url = "https://maven.pkg.github.com/wafec/twenty2-core"
+            name = "twenty2-packages"
+            url = "https://maven.pkg.github.com/wafec/twenty2-packages"
             credentials {
                 username = System.getenv( "GITHUB_ACTOR" )
                 password = System.getenv( "GITHUB_TOKEN" )
