@@ -7,9 +7,6 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./libraries/twenty2-core
     permissions:
       contents: read
       packages: write
